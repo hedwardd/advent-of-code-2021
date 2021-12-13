@@ -34,9 +34,9 @@ const getTotalCounts = (listsOfBits: Bits[]): BitCounts => {
   return listsOfBits.reduce(getNewBitCounts, startCounts);
 }
 
-const moreCommonBit = (bitCount: BitCount) => bitCount[0] >= bitCount[1] ? 0 : 1;
+const mostCommonBit = (bitCount: BitCount) => bitCount[0] >= bitCount[1] ? 0 : 1;
 
-const mostCommonBitsFromTotalCounts = (totalCounts: BitCounts) : Bits => totalCounts.map(moreCommonBit);
+const mostCommonBitsFromTotalCounts = (totalCounts: BitCounts) : Bits => totalCounts.map(mostCommonBit);
 
 const gammaRateFromMostCommonBits = (mostCommonBits: Bits): number => parseInt(mostCommonBits.join(''), 2);
 
