@@ -1,6 +1,6 @@
 import input from './day5input';
 // import input from './day5SampleInput';
-const sampleOutput = 5;
+// const sampleOutput = 5;
 
 // Parse the input
 const splitInput = splitInputByLines(input);
@@ -24,18 +24,18 @@ splitInput.forEach(line => {
   const [start, end] = line.split(' -> ');
   let [startX, startY] = start.split(',').map(Number);
   const [endX, endY] = end.split(',').map(Number);
-  if (startX === endX || startY === endY) {
-    // Update values in the array
-    grid[startX][startY] += 1;
 
-    while (startX !== endX || startY !== endY) {
-      if (startX === endX) {
-        startY += startY < endY ? 1 : -1;
-      } else if (startY === endY) {
-        startX += startX < endX ? 1 : -1;
-      }
-    grid[startX][startY]+= 1;
+  // Update values in the array
+  grid[startX][startY] += 1;
+
+  while (startX !== endX || startY !== endY) {
+    if (startX !== endX) {
+      startX += startX < endX ? 1 : -1;
     }
+    if (startY !== endY) {
+      startY += startY < endY ? 1 : -1;
+    }
+    grid[startX][startY]+= 1;
   }
 });
 
